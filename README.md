@@ -56,7 +56,7 @@ wallet = new TronWallet(words);
 ```
 
 All coin types share the same interface `CryptoWallet` interface.
-The methods you'll need is expected to be defined on `CryptoWallet` interface.
+The methods you'll need is defined on `CryptoWallet` interface.
 
 ### Deriving PrivateKeys and Public Addresses
 
