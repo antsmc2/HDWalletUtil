@@ -64,7 +64,7 @@ After the wallet is defined, the addresses can be easily derived as follows.
 
 ```
 // Derive the private key for BIP44 path "m/44'/<coinType>'/0'/0/2"
-// E.g. This For Bitcoin mainnet (coinType = 2), this corresponds to path: m/44'/0'/0'/0/2
+// E.g. This For Bitcoin mainnet (coinType = 0), this corresponds to path: m/44'/0'/0'/0/2
 // E.g. This For ethereum (coinType = 60), this corresponds to path: m/44'/60'/0'/0/2
 // E.g. This For Tron (coinType = 195), this corresponds to path: m/44'/195'/0'/0/2
 String derivedPrivateKey = wallet.getNormalizedPrivateKey(2);
