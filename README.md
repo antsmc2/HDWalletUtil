@@ -17,8 +17,9 @@ Even though it is still work in progress, the code  mostly follows the TDD appro
 
 ## Installation
 
-For now, you can clone this repo into your project. 
-A jar file and gradle/Maven setup information will most likely be provided in the near future.
+For now, you try including [this jar file](https://github.com/antsmc2/HDWalletUtil/tree/main/out/HDWalletUtil.jar) in your project.
+You can also clone this repo into your project. 
+Gradle/Maven setup information will most likely be provided in the near future.
 
 ## Usage
 
