@@ -1,27 +1,28 @@
 ##Overview
-The repo aims to provide a java based set of utilities for managing crypto currency
+
+The repo aims to provide a set of utilities written in Java for managing
 Hierarchical Deterministic Wallets (HD Wallets) using BIP39, BIP32 and BIP44 specifications. 
 Currently only Bitcoin, Ethereum and Tron are supported. 
 
-The intention is to create a simple set of utilities in Java to serve as a starting point
+The hope is that this utility can serve as a starting point
 for anyone wishing to build HD Wallets for any coin type.
-I couldn't find any library that works accross coin types hence this attempt in hopes that someone finds it useful.
-Even though is still work in progress, I try to follow a TDD approach to ensure all functionality is tested.
+There currently isn't many libraries that easily supports this accross coin types, hence this attempt in hopes that someone finds it useful.
+Even though it is still work in progress, the code  mostly follows the TDD approach to ensure all functionality is tested.
 
 ## Features
 
-- Generation of Mnemonic Phrases used in creating HD Wallets
-- Determining all private keys for a given coin type
-- Determining the public address for a given coin type
+- Generation of Mnemonic Phrases
+- Deriving the private keys for a given coin type
+- Deriving the public addresses for a given coin type
 
 ## Installation
 
-For now, you can clone this repo into your project.
-I will likely be including a jar file and gradle/Maven setup information in the near future.
+For now, you can clone this repo into your project. 
+A jar file and gradle/Maven setup information will most likely be provided in the near future.
 
 ## Usage
 
-### Generating fresh mnemonic words
+### Generating fresh mnemonic phrases
 ```
 import java.util.List;
 import com.antsmc2.common.CommonUtil;
@@ -30,7 +31,7 @@ List<String> words = CommonUtil.generateMnemonicsPhrase();
 ```
 
 ### Creating Wallets
-*Note: The mnemonic phrase can be a freshly generated or retrieved from a storage location*
+*Note: The mnemonic phrase can be freshly generated or loaded from a storage location*
 
 ```
 import java.util.List;
@@ -55,9 +56,11 @@ wallet = new TronWallet(words);
 ```
 
 All coin types share the same interface `CryptoWallet` interface.
+The methods you'll need is expected to be defined on `CryptoWallet` interface.
 
 ### Deriving PrivateKeys and Public Addresses
-*Note: The mnemonic phrase can be a freshly generated or retrieved from a storage location*
+
+After the wallet is defined, the addresses can be easily derived as follows.
 
 ```
 // Derive the private key for BIP44 path String.format("m/44'/%s'/0'/0/2", coinType)
