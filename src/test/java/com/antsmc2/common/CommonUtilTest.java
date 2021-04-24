@@ -2,8 +2,6 @@ package com.antsmc2.common;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import party.loveit.bip44forjava.utils.Bip44Utils;
-
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;

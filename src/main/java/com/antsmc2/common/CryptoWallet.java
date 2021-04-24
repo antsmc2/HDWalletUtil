@@ -1,6 +1,7 @@
 package com.antsmc2.common;
 
-import party.loveit.bip44forjava.utils.Bip44Utils;
+import org.web3j.crypto.Bip32ECKeyPair;
+import static org.web3j.crypto.Bip32ECKeyPair.HARDENED_BIT;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -16,9 +17,12 @@ public interface CryptoWallet {
      */
     default BigInteger getDerivedPrivateKey(Integer addressId) {
         Integer coinType = this.getCoinType();
-        String keyPath = String.format("m/44'/%s'/0'/0/%s", coinType, addressId);
         List<String> words = getMnemonicPhrase();
-        return Bip44Utils.getPathPrivateKey(words, keyPath);
+        final int[] path = {44 | HARDENED_BIT, coinType | HARDENED_BIT, 0 | HARDENED_BIT, 0, addressId};
+        byte[] seed = CommonUtil.getSeed(words);
+        Bip32ECKeyPair masterKey = Bip32ECKeyPair.generateKeyPair(seed);
+        Bip32ECKeyPair keyPair = Bip32ECKeyPair.deriveKeyPair(masterKey, path);
+        return keyPair.getPrivateKey();
     }
 
     /**
