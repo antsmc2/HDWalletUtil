@@ -22,11 +22,11 @@ public class BitcoinWallet implements CryptoWallet {
     public BitcoinWallet(NetworkType networkType, List<String> mnemonicPhrase) {
         switch (networkType) {
             case MAIN_NET:
-                coinType = 0;
+                coinType = 0;  // main net coin type
                 networkParameters = MainNetParams.get();
                 break;
             case TEST_NET:
-                coinType = 1;
+                coinType = 1;  // test net coin type
                 networkParameters = TestNet3Params.get();
         }
         this.mnemonicPhrase = mnemonicPhrase;
