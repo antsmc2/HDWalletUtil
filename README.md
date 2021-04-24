@@ -70,7 +70,7 @@ After the wallet is defined, the addresses can be easily derived as follows.
 String derivedPrivateKey = wallet.getNormalizedPrivateKey(2);
 
 // Get the public address for receiving coins
-// This example gets the address for account 11 for BIP44 path String.format("m/44'/%s'/0'/0/2", coinType)
+// This example gets the address for account 11 for BIP44 path "m/44'/<coinType>'/0'/0/11"
 String address = wallet.getNormalizedPublicAddress(11);
 ```
 
