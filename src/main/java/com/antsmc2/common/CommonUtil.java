@@ -1,21 +1,21 @@
 package com.antsmc2.common;
 
-import party.loveit.bip44forjava.utils.Bip44Utils;
-import party.loveit.bip44forjava.utils.EnglishWords;
-import party.loveit.bip44forjava.utils.MnemonicCode;
-
+import org.web3j.crypto.MnemonicUtils;
+import java.util.Arrays;
 import java.util.List;
 
-import static party.loveit.bip44forjava.utils.EnglishWords.*;
 
 public class CommonUtil {
 
     public static List<String> generateMnemonicsPhrase() throws Exception {
-        return Bip44Utils.generateMnemonicWords();
+        byte[] initialEntropy = new byte[16];
+        SecureRandomUtils.secureRandom().nextBytes(initialEntropy);
+        String mnemonic = MnemonicUtils.generateMnemonic(initialEntropy);
+        return Arrays.asList(mnemonic.split(" "));
     }
 
     public static List<String> getAllMnemonicsWords() {
-        return MnemonicCode.INSTANCE.getWordList();
+        return MnemonicUtils.getWords();
     }
 
     public static byte[] getSeed(List<String> words) {
@@ -23,8 +23,6 @@ public class CommonUtil {
     }
 
     public static byte[] getSeed(List<String> words, String paraphrase) {
-        if(paraphrase == null)
-            paraphrase = "";
-        return MnemonicCode.toSeed(words, paraphrase);
+        return MnemonicUtils.generateSeed(String.join(" ", words), paraphrase);
     }
 }

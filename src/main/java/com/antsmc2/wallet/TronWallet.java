@@ -2,11 +2,6 @@ package com.antsmc2.wallet;
 
 import com.antsmc2.common.CryptoWallet;
 import com.github.ki5fpl.tronj.key.KeyPair;
-import org.web3j.crypto.ECKeyPair;
-import org.web3j.crypto.Keys;
-import org.web3j.utils.Numeric;
-
-import java.math.BigInteger;
 import java.util.List;
 
 public class TronWallet implements CryptoWallet {

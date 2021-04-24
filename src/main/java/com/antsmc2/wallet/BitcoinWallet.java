@@ -10,7 +10,6 @@ import org.bitcoinj.script.Script;
 import java.math.BigInteger;
 import java.util.List;
 
-
 public class BitcoinWallet implements CryptoWallet {
     private Integer coinType;
     private final List<String> mnemonicPhrase;

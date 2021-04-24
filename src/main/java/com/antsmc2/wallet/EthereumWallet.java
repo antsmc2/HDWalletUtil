@@ -4,7 +4,6 @@ import com.antsmc2.common.CryptoWallet;
 import org.web3j.crypto.ECKeyPair;
 import org.web3j.crypto.Keys;
 import org.web3j.utils.Numeric;
-
 import java.math.BigInteger;
 import java.util.List;
 
